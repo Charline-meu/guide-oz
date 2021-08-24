@@ -1,0 +1,10 @@
+baseURL = 'http://example.org/'
+languageCode = 'fr-be'
+title = 'Guide OZ'
+# enableGitInfo = true
+
+[params]
+BookTheme = 'auto'
+description = 'Guide collaboratif pour OZ'
+# images = ['site-feature-image.jpg']
+title = 'Guide OZ'
