@@ -1,0 +1,15 @@
+{
+  "name": "Guide OZ",
+  "short_name": "Guide OZ",
+  "start_url": "/guide-oz/",
+  "scope": "/guide-oz/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/guide-oz/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}
