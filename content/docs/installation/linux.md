@@ -6,7 +6,12 @@ draft: false
 
 # Linux
 ## Installation
+Chaque distribution de Linux a sa propre méthode d'installation. Référez-vous donc à celle de votre distribution.
 ### Arch
 ```shell
 sudo pacman -Sy mozart2
+```
+## Lancer l'environnement de développement
+```shell
+oz
 ```
