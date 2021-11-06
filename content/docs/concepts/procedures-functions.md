@@ -24,7 +24,6 @@ end
 
 ## Fonctions
 C'est une **procédure qui retourne une valeur**.
-
 ### Déclaration
 ```oz
 declare
@@ -36,6 +35,20 @@ end
 ### Appel
 ```oz
 {FunctionName Arg1 Arg2}
+```
+
+## Procédures et fonctions anonymes
+Une procédure ou une fonction anonyme est une procédure ou une fonction qui n'a pas de nom.
+### Déclaration
+À la place de mettre un nom pour la procédure ou la fonction on met un `$`.
+```oz
+declare
+Anonymous = fun {$ Arg1 Arg2} Arg1*Arg2 end
+```
+### Appel
+```oz
+{Anonymous Arg1 Arg2}
+% Remplacez Anonymous par l'identifiant de votre variable
 ```
 
 ## Transformer une fonction en procédure
