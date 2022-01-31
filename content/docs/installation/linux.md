@@ -13,7 +13,7 @@ Chaque distribution de Linux a sa propre méthode d'installation. Référez-vous
 sudo pacman -Sy mozart2
 ```
 ### Ubuntu
-Tutoriel complet (ici)[https://help.ubuntu.com/community/Mozart]
+Tutoriel complet [ici](https://help.ubuntu.com/community/Mozart)
 
 ## Lancer l'environnement de développement
 ```shell
