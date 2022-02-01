@@ -1,6 +1,5 @@
 ---
 title: "Installation de Mozart2"
-bookCollapseSection: true
 ---
 # Installation de Mozart2
 Sélectionnez votre système d'exploitation :
