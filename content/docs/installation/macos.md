@@ -31,3 +31,7 @@ brew install --cask mozart2
 Deux applications se nommant `Emacs` et `Mozart2` devraient à présent se trouver dans votre dossier `Applications`. Si MacOs vous empêche de les lancer, ouvrez Finder et **cliquez droit sur l'application** puis **cliquez sur ouvrir**.
 
 En cliquant sur `Mozart2`, une version d'Emacs configurée pour Mozart2 devrait alors s'ouvrir. Amusez-vous bien!
+
+## Problèmes connus
+### Bug des parenthèses
+Cliquez [ici](https://blog.oliver-mueller.com/-234) pour suivre le guide permettant de résoudre ce problème.
