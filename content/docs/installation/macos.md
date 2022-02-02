@@ -28,6 +28,6 @@ Ensuite, **installez Mozart2** avec la commande suivante:
 ```shell
 brew install --cask mozart2
 ```
-Une application se nommant `Mozart2` devrait à présent se trouver dans votre dossier `Applications`. Si MacOs vous empêche de la lancer, ouvrez Finder et **cliquez droit sur l'application** puis **cliquez sur ouvrir**.
+Deux applications se nommant `Emacs` et `Mozart2` devraient à présent se trouver dans votre dossier `Applications`. Si MacOs vous empêche de les lancer, ouvrez Finder et **cliquez droit sur l'application** puis **cliquez sur ouvrir**.
 
-Une version d'Emacs configurée pour Mozart2 devrait alors s'ouvrir. Amusez-vous bien!
+En cliquant sur `Mozart2`, une version d'Emacs configurée pour Mozart2 devrait alors s'ouvrir. Amusez-vous bien!
