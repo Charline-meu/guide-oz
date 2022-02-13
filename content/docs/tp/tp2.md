@@ -1,7 +1,7 @@
 ---
 title: "Séance 2"
 date: 2022-02-09T10:00:46+01:00
-draft: true
+draft: false
 weight: 2
 ---
 # Séance 2
