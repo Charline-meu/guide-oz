@@ -10,3 +10,4 @@ Il se peut donc que les solutions ne soient pas optimales ou que vous en ayez de
 Essayez de faire les exercices par vous-même avant de lire les solutions.
 
 1. [Séance 1](tp1)
+2. [Séance 2](tp2)
