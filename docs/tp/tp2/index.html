@@ -1,0 +1,403 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Séance 2 #  Question 1 #  declare % Définitions L1 = a|nil L2 = a|(b|c|nil)|d|nil L3 = proc {$} {Browse oui} end|proc{$} {Browse non} end|nil L4 = est|une|liste|nil L5 = (a|p|nil)|nil % Nouvelle list en ajoutant ceci NewList = ceci|L4 % Appel de la première procédure {L3.1} % Obtention de [[b c] d] End = L2.2 % Fonction head et tail fun {Head L} case L of H|_ then H else nil end end fun {Tail L} case L of _|T then T else nil end end Question 2 #  declare fun {Length L} fun {LengthAcc L Acc} case L of nil then Acc [] _|T then {LengthAcc T Acc+1} end end in {LengthAcc L 0} end Question 3 #  declare fun {Append L1 L2} case L1 of H|T then H|{Append T L2} [] nil then L2 end end Question 4 #  declare fun {IsEmpty L} case L of nil then empty [] _|_ then nonEmpty else other end end Question 5 #  declare fun {Take Xs N} case Xs of H|T then if N>0 then H|{Take T N-1} else nil end [] nil then nil end end fun {Drop Xs N} case Xs of H|T then if N>0 then {Drop T N-1} else Xs end [] nil then nil end end Question 6 #  declare fun {MultList L} fun {MulListAcc L Acc} case L of nil then Acc [] H|T then {MulListAcc T H*Acc} end end in {MulListAcc L 1} end Question 7 #  declare L1 = [[1 2 3] [4 5 6]] L2 = (1|2|3|nil)|(4|5|6|nil)|nil L3 = (1|(2|(3|nil)))|(4|(5|(6|nil)))|nil Question 8 #  declare fun {Prefix L1 L2} case L1 of H1|T1 then case L2 of H2|T2 then if H1 == H2 then {Prefix T1 T2} else false end [] nil then false end [] nil then true end end fun {FindString S T} IndexMax = {Length T} - {Length S} + 1 fun {FindStringHelp L1 L2 I} if I =< IndexMax then if {Prefix L1 L2} then I|{FindStringHelp L1 L2.">
+<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Séance 2">
+<meta property="og:description" content="Séance 2 #  Question 1 #  declare % Définitions L1 = a|nil L2 = a|(b|c|nil)|d|nil L3 = proc {$} {Browse oui} end|proc{$} {Browse non} end|nil L4 = est|une|liste|nil L5 = (a|p|nil)|nil % Nouvelle list en ajoutant ceci NewList = ceci|L4 % Appel de la première procédure {L3.1} % Obtention de [[b c] d] End = L2.2 % Fonction head et tail fun {Head L} case L of H|_ then H else nil end end fun {Tail L} case L of _|T then T else nil end end Question 2 #  declare fun {Length L} fun {LengthAcc L Acc} case L of nil then Acc [] _|T then {LengthAcc T Acc+1} end end in {LengthAcc L 0} end Question 3 #  declare fun {Append L1 L2} case L1 of H|T then H|{Append T L2} [] nil then L2 end end Question 4 #  declare fun {IsEmpty L} case L of nil then empty [] _|_ then nonEmpty else other end end Question 5 #  declare fun {Take Xs N} case Xs of H|T then if N>0 then H|{Take T N-1} else nil end [] nil then nil end end fun {Drop Xs N} case Xs of H|T then if N>0 then {Drop T N-1} else Xs end [] nil then nil end end Question 6 #  declare fun {MultList L} fun {MulListAcc L Acc} case L of nil then Acc [] H|T then {MulListAcc T H*Acc} end end in {MulListAcc L 1} end Question 7 #  declare L1 = [[1 2 3] [4 5 6]] L2 = (1|2|3|nil)|(4|5|6|nil)|nil L3 = (1|(2|(3|nil)))|(4|(5|(6|nil)))|nil Question 8 #  declare fun {Prefix L1 L2} case L1 of H1|T1 then case L2 of H2|T2 then if H1 == H2 then {Prefix T1 T2} else false end [] nil then false end [] nil then true end end fun {FindString S T} IndexMax = {Length T} - {Length S} + 1 fun {FindStringHelp L1 L2 I} if I =< IndexMax then if {Prefix L1 L2} then I|{FindStringHelp L1 L2.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ahzed11.github.io/guide-oz/docs/tp/tp2/"><meta property="article:section" content="docs">
+<meta property="article:published_time" content="2022-02-09T10:00:46+01:00">
+<meta property="article:modified_time" content="2022-02-09T10:00:46+01:00"><meta property="og:site_name" content="Guide OZ">
+<title>Séance 2 | Guide OZ</title>
+<link rel=manifest href=/guide-oz/manifest.json>
+<link rel=icon href=/guide-oz/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/guide-oz/book.min.87312a22c120b2e99e4dbec51f671dd6b1cb0bed3b12a909c39a0aa981eb5a8f.css integrity="sha256-hzEqIsEgsumeTb7FH2cd1rHLC+07EqkJw5oKqYHrWo8=" crossorigin=anonymous>
+<script defer src=/guide-oz/flexsearch.min.js></script>
+<script defer src=/guide-oz/en.search.min.f0eb135b6bc8f3818b4538c010b43b40aaa48ea1cfa994fab197c3e00706e062.js integrity="sha256-8OsTW2vI84GLRTjAELQ7QKqkjqHPqZT6sZfD4AcG4GI=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://ahzed11.github.io/guide-oz/css/prism.css>
+<script type=text/javascript src=https://ahzed11.github.io/guide-oz/js/prism.js></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/guide-oz/><span>Guide OZ</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/installation/>Installation de Mozart2</a>
+<ul>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/installation/vscode/>VSCode</a>
+</li>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/installation/windows/>Windows</a>
+</li>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/installation/macos/>Macos</a>
+</li>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/installation/linux/>Linux</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/tp/>TP</a>
+<ul>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/tp/tp1/>Séance 1</a>
+</li>
+<li>
+<a href=https://ahzed11.github.io/guide-oz/docs/tp/tp2/ class=active>Séance 2</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/guide-oz/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Séance 2</strong>
+<label for=toc-control>
+<img src=/guide-oz/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#question-1>Question 1</a></li>
+<li><a href=#question-2>Question 2</a></li>
+<li><a href=#question-3>Question 3</a></li>
+<li><a href=#question-4>Question 4</a></li>
+<li><a href=#question-5>Question 5</a></li>
+<li><a href=#question-6>Question 6</a></li>
+<li><a href=#question-7>Question 7</a></li>
+<li><a href=#question-8>Question 8</a></li>
+<li><a href=#question-9>Question 9</a></li>
+<li><a href=#question-10>Question 10</a></li>
+<li><a href=#question-11>Question 11</a></li>
+<li><a href=#question-12>Question 12</a></li>
+<li><a href=#question-13>Question 13</a></li>
+<li><a href=#question-14>Question 14</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=séance-2>
+Séance 2
+<a class=anchor href=#s%c3%a9ance-2>#</a>
+</h1>
+<h2 id=question-1>
+Question 1
+<a class=anchor href=#question-1>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+% Définitions
+L1 = a|nil
+L2 = a|(b|c|nil)|d|nil
+L3 = proc {$} {Browse oui} end|proc{$} {Browse non} end|nil
+L4 = est|une|liste|nil
+L5 = (a|p|nil)|nil
+
+% Nouvelle list en ajoutant ceci
+NewList = ceci|L4
+
+% Appel de la première procédure
+{L3.1}
+
+% Obtention de [[b c] d]
+End = L2.2
+
+% Fonction head et tail
+fun {Head L}
+    case L of H|_ then H 
+    else nil end
+end
+
+fun {Tail L}
+    case L of _|T then T
+    else nil end
+end
+</code></pre><h2 id=question-2>
+Question 2
+<a class=anchor href=#question-2>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {Length L}
+    fun {LengthAcc L Acc}
+        case L of nil then Acc
+        [] _|T then {LengthAcc T Acc+1}
+        end
+    end
+in
+    {LengthAcc L 0}
+end
+</code></pre><h2 id=question-3>
+Question 3
+<a class=anchor href=#question-3>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {Append L1 L2}
+   case L1 of H|T then H|{Append T L2}
+   [] nil then L2
+   end
+end
+</code></pre><h2 id=question-4>
+Question 4
+<a class=anchor href=#question-4>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {IsEmpty L}
+    case L of nil then empty
+    [] _|_ then nonEmpty
+    else other end
+end
+</code></pre><h2 id=question-5>
+Question 5
+<a class=anchor href=#question-5>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {Take Xs N}
+   case Xs of H|T then
+      if N&gt;0 then H|{Take T N-1}
+      else nil end
+      [] nil then nil
+   end
+end
+
+fun {Drop Xs N}
+   case Xs of H|T then
+      if N&gt;0 then {Drop T N-1}
+      else Xs
+      end
+   [] nil then nil
+   end
+end
+</code></pre><h2 id=question-6>
+Question 6
+<a class=anchor href=#question-6>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {MultList L}
+    fun {MulListAcc L Acc}
+        case L of nil then Acc
+        [] H|T then {MulListAcc T H*Acc}
+        end
+    end
+in
+    {MulListAcc L 1}
+end
+</code></pre><h2 id=question-7>
+Question 7
+<a class=anchor href=#question-7>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+L1 = [[1 2 3] [4 5 6]]
+L2 = (1|2|3|nil)|(4|5|6|nil)|nil
+L3 = (1|(2|(3|nil)))|(4|(5|(6|nil)))|nil
+</code></pre><h2 id=question-8>
+Question 8
+<a class=anchor href=#question-8>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {Prefix L1 L2}
+   case L1 of H1|T1 then
+        case L2 of H2|T2 then
+	        if H1 == H2 then {Prefix T1 T2}
+	        else false
+	        end
+        [] nil then false
+        end
+    [] nil then true
+    end
+end
+
+fun {FindString S T}
+    IndexMax = {Length T} - {Length S} + 1
+    fun {FindStringHelp L1 L2 I}
+        if I =&lt; IndexMax then
+            if {Prefix L1 L2} then
+                I|{FindStringHelp L1 L2.2 I+1}
+            else {FindStringHelp L1 L2.2 I+1}
+            end
+        else nil
+        end
+    end
+in
+    {FindStringHelp S T 1}
+end
+</code></pre><h2 id=question-9>
+Question 9
+<a class=anchor href=#question-9>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+Carte = carte(menu(entree: 'salade verte aux lardons'
+		   plat: 'steak frites'
+		   prix: 10)
+	      menu(entree: 'salade de crevettes grises'
+		   plat: 'saumon fume et pommes de terre'
+		   prix: 12)
+	      menu(plat: 'choucroute garnie'
+		   prix: 9))
+
+{Browse Carte.2} % Second menu
+{Browse Carte.2.plat} % Plat second menu
+{Browse Carte.1.entree} % Entree second menu
+% Ce sont des string. Des listes d'entiers inteprétés comme des char.
+
+% Permet de calculer le prix si N1 personnes prennent le menu 1 etc
+fun {GetPrice C N1 N2 N3}
+   N1 * C.1.prix + N2 * C.2.prix + N3 * C.3.prix
+end
+
+% Arité de la carte 3 et celle des menus 3 aussi je dirais
+</code></pre><h2 id=question-10>
+Question 10
+<a class=anchor href=#question-10>#</a>
+</h2>
+<h2 id=question-11>
+Question 11
+<a class=anchor href=#question-11>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {DictionnaryFilter D F}
+   case D of dict(key: Key info: Info left: Left right: Right) then
+	    if {F D.info} then Key#Info|{DictionaryFilter Left F}|{DictionnaryFilter Right F}
+	    else {DictionaryFilter Left F}|{DictionaryFilter Right F}
+	    end
+	 [] leaf then nil
+   end
+end
+
+local Class Old Value in
+    Class = dict(key:10
+                info:person('Christian' 19)
+                left:dict(key:7
+                    info:person('Denys' 25)
+                    left:leaf
+                    right:dict(key:9
+                        info:person('David' 7)
+                        left:leaf
+                        right:leaf))leaf
+                right:dict(key:18
+                    info:person('Rose' 12)
+                    left:dict(key:14
+                        info:person('Ann' 27)
+                        left:leaf
+                        right:leaf)
+                    right:leaf))
+
+    fun {Old Info}
+        Info.2 &gt; 20
+    end
+    % Val --&gt; [7#person('Denys' 25) 14#person('Ann' 27)]
+    {Browse {DictionaryFilter Class Old }}
+end
+</code></pre><h2 id=question-12>
+Question 12
+<a class=anchor href=#question-12>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>{Browse {IsTuple '|'(a b)}} %-&gt;true, not a list 
+
+{Browse {IsTuple state(1 a 2)}} %-&gt;true, not a list 
+
+{Browse {IsTuple a#b#c}} %-&gt;true 
+
+{Browse {IsList '|'(a '|'(b nil))}} %-&gt;true 
+
+{Browse {IsTuple state(1 3:2 2:a)}} %-&gt;true, not a list, even if fields not in order 
+
+{Browse {IsList [a b c]}} %-&gt;true 
+
+{Browse {IsList '|'(2:nil a)}} %-&gt;true 
+
+{Browse {IsTuple tree(v:a b c)}} %-&gt;false, it is a record 
+
+{Browse {IsTuple m|n|o}}%-&gt;true, not a list
+</code></pre><h2 id=question-13>
+Question 13
+<a class=anchor href=#question-13>#</a>
+</h2>
+<pre tabindex=0><code class=language-oz data-lang=oz>declare
+fun {Applique L F}
+   case L of H|T then {F H}|{Applique T F}
+   [] nil then nil
+   end
+end
+
+fun {Lol X} lol(X) end
+{Browse {Applique [1 2 3] Lol}}
+
+
+fun {MakeAdder N}
+   fun{$ X}
+      X+N
+   end
+end
+
+Add5 = {MakeAdder 5}
+{Browse {Add5 13}}
+
+
+fun {AddAll L N}
+    Add = {MakeAdder N}
+in
+    {Applique L Add}
+end
+{Browse {AddAll [1 2 3] 4}}
+</code></pre><h2 id=question-14>
+Question 14
+<a class=anchor href=#question-14>#</a>
+</h2>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#question-1>Question 1</a></li>
+<li><a href=#question-2>Question 2</a></li>
+<li><a href=#question-3>Question 3</a></li>
+<li><a href=#question-4>Question 4</a></li>
+<li><a href=#question-5>Question 5</a></li>
+<li><a href=#question-6>Question 6</a></li>
+<li><a href=#question-7>Question 7</a></li>
+<li><a href=#question-8>Question 8</a></li>
+<li><a href=#question-9>Question 9</a></li>
+<li><a href=#question-10>Question 10</a></li>
+<li><a href=#question-11>Question 11</a></li>
+<li><a href=#question-12>Question 12</a></li>
+<li><a href=#question-13>Question 13</a></li>
+<li><a href=#question-14>Question 14</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
