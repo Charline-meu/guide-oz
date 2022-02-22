@@ -11,3 +11,4 @@ Essayez de faire les exercices par vous-même avant de lire les solutions.
 
 1. [Séance 1](tp1)
 2. [Séance 2](tp2)
+2. [Séance 3](tp3)

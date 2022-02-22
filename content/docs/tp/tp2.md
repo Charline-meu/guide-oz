@@ -167,7 +167,7 @@ fun {GetPrice C N1 N2 N3}
    N1 * C.1.prix + N2 * C.2.prix + N3 * C.3.prix
 end
 
-% Arité de la carte 3 et celle des menus 3 aussi je dirais
+% Arité de la carte 3 et celle des menus 3 aussi je dirais sauf le dernier à 2
 ```
 
 ## Question 10
