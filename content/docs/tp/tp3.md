@@ -1,7 +1,7 @@
 ---
 title: "Séance 3"
 date: 2022-02-15T11:29:43+01:00
-draft: true
+draft: false 
 ---
 
 # Séance 3
@@ -89,7 +89,7 @@ local P Q in
          {P A R}
          R
       end
-      % Ec = {R -> r}
+      % Ec = {R -> r, P -> p}
 
       proc {P A R} R=A-2 end
       % Ec = {}
