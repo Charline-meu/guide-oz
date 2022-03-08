@@ -1,7 +1,7 @@
 ---
 title: "Séance 5"
 date: 2022-03-01T12:10:21+01:00
-draft: true
+draft: false
 weight: 5
 ---
 
@@ -37,8 +37,8 @@ weight: 5
         - (λz.zy)q
         - qy
     4.  - (λx.x((λz.zx)(λx.bx)))y
-        - y((λz.zy)(λy.by))
-        - y(y(λy.by))
+        - y((λz.zy)(λx.bx))
+        - y(y(λx.bx))
         - y(by)
     5.  - (λm.m)(λn.n)(λc.cc)(λd.d)
         - (λm.m)(λn.n)(λc.(λd.d)(λd.d))
@@ -68,9 +68,8 @@ weight: 5
         - λy. y
 
     1.2 - (λx. λy. x) ((λx. x) y)
-        - (λx. x) ((λx. x) y)
-        - (λx. x) (λy. y)
-        - (λx. x)
+        - λy.(λx. x)y
+        - λy. y
 
     2.1 - (λx.λy. xy) (λz. z) (λw. w)
         - (λy. (λw. w)y) (λz. z)
