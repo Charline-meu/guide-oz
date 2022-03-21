@@ -1,7 +1,7 @@
 ---
 title: "Séance 6"
 date: 2022-03-08T13:41:10+01:00
-draft: true
+draft: false
 weight: 6
 ---
 
