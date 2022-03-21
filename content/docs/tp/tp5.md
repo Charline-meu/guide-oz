@@ -104,3 +104,7 @@ weight: 5
     List ≜ λf.f h t
 
 ## Question 10
+
+## Question 11
+
+## Question 12
