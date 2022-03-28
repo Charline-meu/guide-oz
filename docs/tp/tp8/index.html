@@ -1,0 +1,304 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Séance 7 #  Question 1 #  Machine abstraite au début #  [( declare A B C D thread D = C + 1 end thread C = B + 1 end thread A = 1 end thread B = A + 1 end {Browse D} , { Browse->browse } )], {browse = (...)} Machine abstraite après le declare #  [( thread D = C + 1 end thread C = B + 1 end thread A = 1 end thread B = A + 1 end {Browse D} , { Browse -> browse A->a B->b C->c D->d } )], {browse = (."><meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Séance 8"><meta property="og:description" content="Séance 7 #  Question 1 #  Machine abstraite au début #  [( declare A B C D thread D = C + 1 end thread C = B + 1 end thread A = 1 end thread B = A + 1 end {Browse D} , { Browse->browse } )], {browse = (...)} Machine abstraite après le declare #  [( thread D = C + 1 end thread C = B + 1 end thread A = 1 end thread B = A + 1 end {Browse D} , { Browse -> browse A->a B->b C->c D->d } )], {browse = (."><meta property="og:type" content="article"><meta property="og:url" content="https://ahzed11.github.io/guide-oz/docs/tp/tp8/"><meta property="article:section" content="docs"><meta property="article:published_time" content="2022-03-28T12:17:58+02:00"><meta property="article:modified_time" content="2022-03-28T12:17:58+02:00"><meta property="og:site_name" content="Guide OZ"><title>Séance 8 | Guide OZ</title><link rel=manifest href=/guide-oz/manifest.json><link rel=icon href=/guide-oz/favicon.png type=image/x-icon><link rel=stylesheet href=/guide-oz/book.min.87312a22c120b2e99e4dbec51f671dd6b1cb0bed3b12a909c39a0aa981eb5a8f.css integrity="sha256-hzEqIsEgsumeTb7FH2cd1rHLC+07EqkJw5oKqYHrWo8=" crossorigin=anonymous><script defer src=/guide-oz/flexsearch.min.js></script>
+<script defer src=/guide-oz/en.search.min.6fa1ce44ffef4cdfe41ed477d49dc1f5526c70320331c54512231b05d7777ffd.js integrity="sha256-b6HORP/vTN/kHtR31J3B9VJscDIDMcVFEiMbBdd3f/0=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://ahzed11.github.io/guide-oz/css/prism.css><script type=text/javascript src=https://ahzed11.github.io/guide-oz/js/prism.js></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/guide-oz/><span>Guide OZ</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=https://ahzed11.github.io/guide-oz/docs/installation/>Installation de Mozart2</a><ul><li><a href=https://ahzed11.github.io/guide-oz/docs/installation/vscode/>VSCode</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/installation/windows/>Windows</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/installation/macos/>Macos</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/installation/linux/>Linux</a></li></ul></li><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/>TP</a><ul><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/tp1/>Séance 1</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/tp2/>Séance 2</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/tp3/>Séance 3</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/tp4/>Séance 4</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/tp5/>Séance 5</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/tp6/>Séance 6</a></li><li><a href=https://ahzed11.github.io/guide-oz/docs/tp/tp8/ class=active>Séance 8</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/guide-oz/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Séance 8</strong>
+<label for=toc-control><img src=/guide-oz/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#question-1>Question 1</a><ul><li><a href=#machine-abstraite-au-début>Machine abstraite au début</a></li><li><a href=#machine-abstraite-après-le-declare>Machine abstraite après le declare</a></li><li><a href=#machine-abstraite-après-la-création-des-quatre-threads>Machine abstraite après la création des quatre threads</a></li></ul></li><li><a href=#question-2>Question 2</a><ul><li><a href=#partie-1>Partie 1</a></li><li><a href=#partie-2>Partie 2</a></li></ul></li><li><a href=#question-3>Question 3</a></li><li><a href=#question-4>Question 4</a><ul><li><a href=#partie-1-1>Partie 1</a></li><li><a href=#partie-2-1>Partie 2</a></li></ul></li><li><a href=#question-5>Question 5</a></li><li><a href=#question-6>Question 6</a></li></ul></nav></aside></header><article class=markdown><h1 id=séance-7>Séance 7
+<a class=anchor href=#s%c3%a9ance-7>#</a></h1><h2 id=question-1>Question 1
+<a class=anchor href=#question-1>#</a></h2><h3 id=machine-abstraite-au-début>Machine abstraite au début
+<a class=anchor href=#machine-abstraite-au-d%c3%a9but>#</a></h3><pre tabindex=0><code class=language-oz data-lang=oz>[(
+    declare A B C D
+    thread D = C + 1 end
+    thread C = B + 1 end
+    thread A = 1 end
+    thread B = A + 1 end
+    {Browse D}
+    ,
+    {
+        Browse-&gt;browse
+    }
+)], {browse = (...)}
+</code></pre><h3 id=machine-abstraite-après-le-declare>Machine abstraite après le declare
+<a class=anchor href=#machine-abstraite-apr%c3%a8s-le-declare>#</a></h3><pre tabindex=0><code class=language-oz data-lang=oz>[(
+    thread D = C + 1 end
+    thread C = B + 1 end
+    thread A = 1 end
+    thread B = A + 1 end
+    {Browse D}
+    ,
+    {
+        Browse -&gt; browse
+        A-&gt;a
+        B-&gt;b
+        C-&gt;c
+        D-&gt;d
+    }
+)], {browse = (...), a, b, c, d}
+</code></pre><h3 id=machine-abstraite-après-la-création-des-quatre-threads>Machine abstraite après la création des quatre threads
+<a class=anchor href=#machine-abstraite-apr%c3%a8s-la-cr%c3%a9ation-des-quatre-threads>#</a></h3><pre tabindex=0><code class=language-oz data-lang=oz>[(D = C + 1, {Browse -&gt; browse, A -&gt; a, B -&gt; b, C -&gt; c, D-&gt;d})]
+[(C = B + 1, {Browse -&gt; browse, A -&gt; a, B -&gt; b, C -&gt; c, D-&gt;d})]
+[(A = 1, {Browse -&gt; browse, A -&gt; a, B -&gt; b, C -&gt; c, D-&gt;d})]
+[(B = A + 1, {Browse -&gt; browse, A -&gt; a, B -&gt; b, C -&gt; c, D-&gt;d})]
+[(Browse D, {Browse -&gt; browse, A -&gt; a, B -&gt; b, C -&gt; c, D-&gt;d})]
+, {browse = (...), a, b, c, d}
+</code></pre><h2 id=question-2>Question 2
+<a class=anchor href=#question-2>#</a></h2><h3 id=partie-1>Partie 1
+<a class=anchor href=#partie-1>#</a></h3><h4 id=machine-abstraite-au-début-1>Machine abstraite au début
+<a class=anchor href=#machine-abstraite-au-d%c3%a9but-1>#</a></h4><pre tabindex=0><code class=language-oz data-lang=oz>[(
+    local X Y Z in
+        thread if X == 1 then Y = 2 else Z = 2 end
+        thread if Y == 1 then X = 1 else Z = 2 end
+        X = 1
+    end
+    ,
+    {}
+)], {}
+</code></pre><h4 id=machine-abstraite-après-une-étape>Machine abstraite après une étape
+<a class=anchor href=#machine-abstraite-apr%c3%a8s-une-%c3%a9tape>#</a></h4><pre tabindex=0><code class=language-oz data-lang=oz>[(
+    thread if X == 1 then Y = 2 else Z = 2 end
+    thread if Y == 1 then X = 1 else Z = 2 end
+    X = 1
+    ,
+    {X -&gt; x, Y -&gt; y, Z -&gt; z}
+)], {x = _, y = _, z = _}
+</code></pre><h4 id=machine-abstraite-après-deux-étapes>Machine abstraite après deux étapes
+<a class=anchor href=#machine-abstraite-apr%c3%a8s-deux-%c3%a9tapes>#</a></h4><pre tabindex=0><code class=language-oz data-lang=oz>[(
+    thread if X == 1 then Y = 2 else Z = 2 end
+    ,
+    {X -&gt; x, Y -&gt; y, Z -&gt; z}
+)]
+[(
+    thread if Y == 1 then X = 1 else Z = 2 end
+    X = 1
+    ,
+    {X -&gt; x, Y -&gt; y, Z -&gt; z}
+)], {x, y, z}
+</code></pre><h3 id=partie-2>Partie 2
+<a class=anchor href=#partie-2>#</a></h3><h4 id=premier-code>Premier code
+<a class=anchor href=#premier-code>#</a></h4><pre tabindex=0><code class=language-oz data-lang=oz>[()],{x = 1, y = 2, z = 2}
+</code></pre><h4 id=second-code>Second code
+<a class=anchor href=#second-code>#</a></h4><pre tabindex=0><code class=language-oz data-lang=oz>[(if Y == 1 then X = 1 else Z = 2 end),{X -&gt; x, Y -&gt; y, Z -&gt; z}],{x = 2, y, z = 2}
+</code></pre><h2 id=question-3>Question 3
+<a class=anchor href=#question-3>#</a></h2><pre tabindex=0><code class=language-oz data-lang=oz>declare SumAux
+fun {ProduceInts N} 
+    fun {ProduceAux I N} 
+        if I &gt;= N then N|nil 
+        else 
+	        I|{ProduceAux I+1 N} 
+        end 
+    end 
+in 
+    {ProduceAux 1 N} 
+end
+
+fun {Sum Str}
+    fun{SumAux Acc Str}
+        case Str
+        of nil then Acc
+        [] H|T then {SumAux Acc+H T}
+        end
+    end
+    {SumAux 0 Str}
+end
+
+
+declare Xs S
+thread Xs = {ProduceInts 666} end
+thread S = {Sum Xs} end
+{Browse S}
+
+
+%La première version prendra 666 secondes, la seconde deux fois plus longtemps
+</code></pre><h2 id=question-4>Question 4
+<a class=anchor href=#question-4>#</a></h2><h3 id=partie-1-1>Partie 1
+<a class=anchor href=#partie-1-1>#</a></h3><pre tabindex=0><code class=language-oz data-lang=oz>declare 
+fun {Producer N} 
+    fun {ProduceAux I N} 
+        if I &gt;= N then N|nil 
+        else 
+	        I|{ProduceAux I+1 N} 
+        end 
+    end 
+in 
+    {ProduceAux 1 N} 
+end 
+
+fun {Filter L} 
+    case L 
+    of nil then nil 
+    [] H|T then 
+        if H mod 2 == 0 then {Filter T} 
+        else H|{Filter T} 
+        end 
+    end 
+end 
+
+fun {Consumer L} 
+    fun {SumAux L Acc} 
+        case L 
+        of nil then Acc 
+        [] H|T then {SumAux T Acc+H} 
+        end 
+    end 
+in 
+    {SumAux L 0} 
+end 
+
+declare Xs Ys Zs 
+thread Xs = {Producer 500} end
+thread Ys = {Filter Xs} end 
+thread Zs = {Consumer Ys} end 
+{Browse Zs} 
+</code></pre><h3 id=partie-2-1>Partie 2
+<a class=anchor href=#partie-2-1>#</a></h3><pre tabindex=0><code class=language-oz data-lang=oz>declare 
+
+fun {Barman N} 
+    {Delay 3000} 
+    if N == 0 then nil 
+    else 
+         if {OS.rand} mod 2 == 1 then trappist|{Barman N-1} 
+        else pils|{Barman N-1} 
+        end 
+    end 
+end 
+
+%hoih 
+declare 
+fun {Charlotte Str Acc Count} 
+    fun {SmellTrappist Beer} 
+        Beer == trappist 
+    end 
+in 
+    case Str 
+    of nil then Count = Acc nil 
+    [] H|T then 
+        if {SmellTrappist H} then 
+	        {Charlotte T Acc+1 Count} 
+        else 
+	        H|{Charlotte T Acc Count} 
+        end 
+    end 
+end 
+
+declare 
+fun {Friend Str Count} 
+    case Str 
+    of nil then Count 
+    [] H|T then {Friend T Count+1} 
+    end 
+end 
+
+local Bar Cha Fr C in 
+thread Bar = {Barman 5} end 
+thread Cha = {Charlotte Bar 0 C} end 
+thread Fr = {Friend Cha 0} end 
+{Browse C#Fr} 
+end
+</code></pre><h2 id=question-5>Question 5
+<a class=anchor href=#question-5>#</a></h2><pre tabindex=0><code class=language-oz data-lang=oz>declare 
+fun {Counter Str}
+    fun {UpdateL L Ch} 
+        case L 
+        of nil then (Ch#1)|nil 
+        [] H|T then 
+	        case H 
+	        of H1#H2 then 
+	            if H1 == Ch then 
+	                (H1#(H2+1))|T 
+	            else 
+	                H|{UpdateL T Ch} 
+	            end 
+	        end 
+        end 
+    end 
+    fun {CAcc S Acc}
+        A2 
+    in 
+        case S 
+        of H|T then 
+            A2 = {UpdateL Acc H} 
+            A2|{CAcc T A2} 
+        else nil 
+        end 
+    end 
+in 
+    thread {CAcc Str nil} end 
+end 
+
+local InS in 
+   {Browse {Counter InS}} 
+   InS = a|b|a|c|d|e|b|e|_ 
+end
+</code></pre><h2 id=question-6>Question 6
+<a class=anchor href=#question-6>#</a></h2><pre tabindex=0><code class=language-oz data-lang=oz>declare 
+fun {NotGate Xs} 
+    fun {Not X} 
+        1-X 
+    end 
+    fun {GateLoop F Xs} 
+        case Xs 
+            of X|Xr then {F X}|{GateLoop F Xr} 
+            else nil 
+        end 
+    end 
+in 
+    thread {GateLoop Not Xs} end 
+end 
+
+fun {AndGate Xs Ys} 
+    fun {And X Y} 
+        X*Y 
+    end 
+    fun {GateLoop Xs Ys} 
+        case Xs#Ys 
+        of (X|Xr)#(Y|Yr) then {And X Y}|{AndGate Xr Yr} 
+        end 
+    end 
+in 
+    thread {GateLoop Xs Ys} end 
+end 
+
+fun {OrGate Xs Ys} 
+    fun {Or X Y} 
+        X+Y - X*Y 
+    end 
+    fun {GateLoop Xs Ys} 
+        case Xs#Ys 
+        of (X|Xr)#(Y|Yr) then {Or X Y}|{OrGate Xr Yr} 
+        else nil 
+        end 
+    end 
+in 
+    thread {GateLoop Xs Ys} end 
+end 
+ 
+local S in 
+    S = 0|1|0|0|1|0|nil
+    Q = 1|0|0|0|1|0|0|_ 
+    {Browse {OrGate S Q}} 
+end 
+
+declare 
+fun {Simulate G Ss} 
+    case G 
+        of input(x) then Ss.x 
+        [] input(y) then Ss.y 
+        [] input(z) then Ss.z  
+    else 
+        case G.value 
+        of &#39;or&#39; then 
+            thread {OrGate {Simulate G.1 Ss} {Simulate G.2 Ss}}end 
+        [] &#39;and&#39; then 
+            thread {AndGate {Simulate G.1 Ss} {Simulate G.2 Ss}} end 
+        [] &#39;not&#39; then 
+            thread {NotGate {Simulate G.1 Ss}} end 
+        end 
+    end 
+end 
+
+declare G Ss in 
+    G = gate(value:&#39;or&#39; gate(value:&#39;and&#39; input(x) input(y)) gate(value:&#39;not&#39; input(z))) 
+    {Browse {Simulate G Ss}} 
+    Ss = input(x:1|0|1|0|_ y: 0|1|0|1|_ z:1|1|0|0|_)
+end
+</code></pre></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#question-1>Question 1</a><ul><li><a href=#machine-abstraite-au-début>Machine abstraite au début</a></li><li><a href=#machine-abstraite-après-le-declare>Machine abstraite après le declare</a></li><li><a href=#machine-abstraite-après-la-création-des-quatre-threads>Machine abstraite après la création des quatre threads</a></li></ul></li><li><a href=#question-2>Question 2</a><ul><li><a href=#partie-1>Partie 1</a></li><li><a href=#partie-2>Partie 2</a></li></ul></li><li><a href=#question-3>Question 3</a></li><li><a href=#question-4>Question 4</a><ul><li><a href=#partie-1-1>Partie 1</a></li><li><a href=#partie-2-1>Partie 2</a></li></ul></li><li><a href=#question-5>Question 5</a></li><li><a href=#question-6>Question 6</a></li></ul></nav></div></aside></main></body></html>
